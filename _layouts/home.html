@@ -39,7 +39,7 @@ layout: default
       <a class="entry__link" href="{{ post.url | relative_url }}">
         <span class="entry__num">{{ forloop.rindex | prepend: '00' | slice: -2, 2 }}</span>
         <h3 class="entry__title">{{ post.title }}</h3>
-        <p class="entry__excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 190 }}</p>
+        <p class="entry__excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 34 }}</p>
         <p class="entry__meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
           <span class="tick" aria-hidden="true"></span>
