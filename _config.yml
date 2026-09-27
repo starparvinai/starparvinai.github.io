@@ -1,0 +1,14 @@
+title: Star Parvin
+description: Notes on backend infra, AI systems, and whatever I'm learning at the moment.
+theme: minima
+minima:
+  skin: dark
+
+# Show full posts on the home page listing, not just an excerpt separator
+show_excerpts: true
+
+# Update this if you add real profile links later
+# github_username:  starparvinai
+
+plugins:
+  - jekyll-feed
