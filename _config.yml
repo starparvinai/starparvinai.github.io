@@ -1,14 +1,28 @@
-title: Notes
+title: Parvin Taheri
+author: Parvin Taheri
+role: Backend infrastructure → AI systems
 description: Notes on backend infra, AI systems, and whatever I'm learning at the moment.
-theme: minima
-minima:
-  skin: dark
+url: https://starparvinai.github.io
+baseurl: ""
+lang: en
 
-# Show full posts on the home page listing, not just an excerpt separator
+github_username: starparvinai
+
+# No external theme — layouts live in _layouts/, styles in assets/css/main.css
+permalink: /:year/:month/:title/
+excerpt_separator: "\n\n"
 show_excerpts: true
 
-# Update this if you add real profile links later
-# github_username:  starparvinai
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 plugins:
   - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

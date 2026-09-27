@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<section class="wrap hero">
+  <p class="eyebrow rise">{{ page.eyebrow | default: site.role }}</p>
+  <h1 class="rise">{{ page.headline | default: site.title }}</h1>
+  <p class="hero__lede rise">{{ page.lede | default: site.description }}</p>
+  <p class="hero__meta rise">
+    {%- for link in page.links %}
+    <span><a href="{{ link.url }}" rel="noopener">{{ link.name }}</a></span>
+    {%- endfor %}
+  </p>
+</section>
+
+<div class="wrap">
+  {%- if page.shelf %}
+  <div class="section-head">
+    <h2>Currently</h2>
+    <span>{{ page.shelf | size }} threads</span>
+  </div>
+  <div class="shelf">
+    {%- for cell in page.shelf %}
+    <div class="shelf__cell">
+      <h3>{{ cell.label }}</h3>
+      <p>{{ cell.body }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  <div class="section-head" id="writing">
+    <h2>Writing</h2>
+    <span>{{ site.posts | size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span>
+  </div>
+
+  <ul class="ledger">
+    {%- for post in site.posts %}
+    <li class="entry">
+      <a class="entry__link" href="{{ post.url | relative_url }}">
+        <span class="entry__num">{{ forloop.rindex | prepend: '00' | slice: -2, 2 }}</span>
+        <h3 class="entry__title">{{ post.title }}</h3>
+        <p class="entry__excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 190 }}</p>
+        <p class="entry__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <span class="tick" aria-hidden="true"></span>
+          <span>{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+        </p>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+
+  {{ content }}
+</div>

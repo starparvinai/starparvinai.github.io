@@ -1,0 +1,12 @@
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="mark" href="{{ '/' | relative_url }}">
+      <span class="mark__dot" aria-hidden="true"></span>{{ site.title }}
+    </a>
+    <nav class="nav">
+      <a href="{{ '/#writing' | relative_url }}">Writing</a>
+      {%- if site.github_username %}<a href="https://github.com/{{ site.github_username }}" rel="me noopener">GitHub</a>{%- endif %}
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle colour scheme"><span data-theme-label>Light</span></button>
+    </nav>
+  </div>
+</header>

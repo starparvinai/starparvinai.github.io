@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="progress" data-progress aria-hidden="true"></div>
+
+<article class="wrap post">
+  <header class="post__header">
+    <p class="eyebrow">{{ page.kicker | default: "Essay" }}</p>
+    <h1 class="post__title">{{ page.title }}</h1>
+    <p class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      {%- if page.tags.size > 0 %}<span>{{ page.tags | join: " · " }}</span>{%- endif %}
+    </p>
+  </header>
+
+  <div class="prose">{{ content }}</div>
+
+  <footer class="post__foot">
+    <a href="{{ '/' | relative_url }}">← Index</a>
+    {%- assign prev = page.previous %}
+    {%- if prev %}<a href="{{ prev.url | relative_url }}">Previous: {{ prev.title | truncate: 46 }}</a>{%- endif %}
+    <span style="margin-left:auto">{{ site.author | default: site.title }}</span>
+  </footer>
+</article>

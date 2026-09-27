@@ -1,0 +1,10 @@
+<footer class="colophon">
+  <div class="wrap colophon__inner">
+    <span>© {{ site.time | date: "%Y" }} {{ site.author | default: site.title }}</span>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    {%- if site.github_username %}<a href="https://github.com/{{ site.github_username }}" rel="me noopener">GitHub</a>{%- endif %}
+    <span class="colophon__sig">Set in Instrument Serif &amp; Newsreader</span>
+  </div>
+</footer>
+
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
